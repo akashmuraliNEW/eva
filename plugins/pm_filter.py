@@ -48,7 +48,7 @@ async def next_page(bot, query):
         offset = 0
     search = BUTTONS.get(key)
     if not search:
-        await query.answer("You are using one of my old messages, please send the request again.onude req chyade", show_alert=True)
+        await query.answer("request your own vro ,swanthmayi request chy vro😏😂", show_alert=True)
         return
 
     files, n_offset, total = await get_search_results(search, offset=offset, filter=True)
@@ -135,8 +135,8 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit('This Movie is not found in my database , reason - Movie not released or HD print not released . contact admin if its an old movie to add in database @HELL_GaM')
-            await asyncio.sleep(10)
+            k = await query.message.edit('This Movie is not found in my database , reason - Movie not released ,NO cam prints,HD files mathreme bot ill upload chyu vro . contact admin if its an old movie to add in database @HELL_GaM')
+            await asyncio.sleep(200)
             await k.delete()
 
 
