@@ -34,7 +34,7 @@ SPELL_CHECK = {}
 async def give_filter(client, message):
     k = await manual_filters(client, message)
     if k == False:
-    M = await auto_filter(client, message)
+        await auto_filter(client, message)
     if int(req) not in [message.from_user.id,0]:
         return await query.answer("oKda😂,swanthmayi request chy vro😏", show_alert=True)
 
