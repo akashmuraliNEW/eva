@@ -42,7 +42,7 @@ async def save_group(bot, message):
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
-            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\ncan provide unlimited Movies Just Req movies in crct spelling.</b>",
+            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nCan Provide Movies.make sure have admin privileges with send messages.</b>",
             reply_markup=reply_markup)
     else:
         settings = await get_settings(message.chat.id)
