@@ -45,16 +45,7 @@ class Bot(Client):
         await super().stop()
         logging.info("Bot stopped. Bye.")
         
-        @User.on_message(filters.chat(GROUPS))
-async def delete(user, message):
-    try:
-       if message.from_user.id in ADMINS:
-          return
-       else:
-          await asyncio.sleep(TIME)
-          await Bot.delete_messages(message.chat.id, message.message_id)
-    except Exception as e:
-       print(e)
+        
 
 app = Bot()
 app.run()
