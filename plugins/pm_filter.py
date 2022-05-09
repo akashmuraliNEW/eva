@@ -35,9 +35,8 @@ async def give_filter(client, message):
     k = await manual_filters(client, message)
     if k == False:
         await auto_filter(client, message)
-    if int(req) not in [message.from_user.id,0]:
-        return await query.answer("oKda😂,swanthmayi request chy vro😏", show_alert=True)
-
+    
+    
 @Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
     ident, req, key, offset = query.data.split("_")
