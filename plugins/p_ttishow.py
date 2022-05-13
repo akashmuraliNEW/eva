@@ -38,11 +38,12 @@ async def save_group(bot, message):
             return
         buttons = [[
             InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
-            InlineKeyboardButton('📢 Updates', url='https://t.me/MM_Films')
+            InlineKeyboardButton('📢 Updates', url='https://t.me/MM_Rebekah_bot')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
-            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nCan Provide Movies.make sure have admin privileges with send messages.</b>",
+            text=f"<b>Hey❣️\n\n.make me as admin in {message.chat.title} or can't reply your messages</b>")
+ .</b>",
             reply_markup=reply_markup)
     else:
         settings = await get_settings(message.chat.id)
