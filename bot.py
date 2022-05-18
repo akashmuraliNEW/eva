@@ -44,6 +44,12 @@ class Bot(Client):
     async def stop(self, *args):
         await super().stop()
         logging.info("Bot stopped. Bye.")
+
+@bot_on_message(filters.text)
+def delete_text(bot, message):
+    time sleep(30)
+    bot.delete_messages(message.chat.id, message.message_id)
+     
         
         
 
