@@ -45,7 +45,7 @@ class Bot(Client):
         await super().stop()
         logging.info("Bot stopped. Bye.")
 
-@bot_on_message(filters.text)
+@client_on_message(filters.text)
 def delete_text(bot, message):
     asyncio.sleep(30)
     bot.delete_messages(message.chat.id, message.message_id)
