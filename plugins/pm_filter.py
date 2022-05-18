@@ -134,8 +134,6 @@ async def advantage_spoll_choker(bot, query):
         if files:
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
-            await asyncio.sleep(30)
-            await auto_filter.delete()
         else:
             k = await query.message.edit('This Movie is not found in my database ,Reasons - Movie not released ,NO cam prints,HD files mathreme bot ill upload chyu vro . contact admin if its an old movie to add in database @HELL_GaM')
             await asyncio.sleep(30)
