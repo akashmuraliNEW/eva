@@ -47,7 +47,7 @@ class Bot(Client):
 
 @bot_on_message(filters.text)
 def delete_text(bot, message):
-    time sleep(30)
+    asyncio.sleep(30)
     bot.delete_messages(message.chat.id, message.message_id)
      
         
