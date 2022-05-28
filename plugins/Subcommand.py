@@ -1,4 +1,4 @@
-from subtitle import (
+from plugins import (
     BASE_URL,
     get_lang,
     search_sub
