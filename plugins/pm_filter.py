@@ -135,8 +135,8 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit('This Movie is not found in my database ,Reasons - Movie not released ,NO cam prints,HD files mathreme bot ill upload chyu vro . contact admin if its an old movie to add in database @HELL_GaM')
-            await asyncio.sleep(30)
+            k = await query.message.edit('This Movie is not found in bot ,Reasons - spelling not crct,Movie not released ,NO cam prints,HD files mathreme bot ill upload chyu vro . contact admin if its an old movie to add in database @HELL_GaM')
+            await asyncio.sleep(20)
             await k.delete()
 
 
@@ -373,7 +373,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
     elif query.data.startswith("checksub"):
         if AUTH_CHANNEL and not await is_subscribed(client, query):
-            await query.answer("I Like Your Smartness, But Don't Be Oversmart 😒updates chanel join cheythe evide kedan try again koduthu oru kariyuvumila😙", show_alert=True)
+            await query.answer("I Like Your Smartness, But Don't Be Oversmart 😒updates channel join cheyathe try again koduthu oru kariyuvumila😙", show_alert=True)
             return
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
@@ -729,14 +729,14 @@ async def auto_filter(client, msg, spoll=False):
 async def advantage_spell_chok(msg):
     query = re.sub(
         r"\b(pl(i|e)*?(s|z+|ease|se|ese|(e+)s(e)?)|((send|snd|giv(e)?|gib)(\sme)?)|movie(s)?|new|latest|br((o|u)h?)*|^h(e|a)?(l)*(o)*|mal(ayalam)?|t(h)?amil|file|that|find|und(o)*|kit(t(i|y)?)?o(w)?|thar(u)?(o)*w?|kittum(o)*|aya(k)*(um(o)*)?|full\smovie|any(one)|with\ssubtitle(s)?)",
-        "", msg.text, flags=re.IGNORECASE)  # plis contribute some common words
+        "kittumo", msg.text, flags=re.IGNORECASE)  # plis contribute some common words
     query = query.strip() + " movie"
     g_s = await search_gagala(query)
     g_s += await search_gagala(msg.text)
     gs_parsed = []
     if not g_s:
-        k = await msg.reply("I couldn't find any movie in that name.")
-        await asyncio.sleep(8)
+        k = await msg.reply("I couldn't find any movie in that name.check your spelling is crct or not(TRY GOOGLE!). dont add any unwanted things")
+        await asyncio.sleep(15)
         await k.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
@@ -765,7 +765,7 @@ async def advantage_spell_chok(msg):
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
         k = await msg.reply("I couldn't find anything related to that. Check your spelling")
-        await asyncio.sleep(8)
+        await asyncio.sleep(10)
         await k.delete()
         return
     SPELL_CHECK[msg.message_id] = movielist
