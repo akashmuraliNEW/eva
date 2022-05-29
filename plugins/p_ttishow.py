@@ -42,7 +42,7 @@ async def save_group(bot, message):
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
-            text=f"<b>Hey❣️\n\n.make me as admin in {message.chat.title} or can't reply your messages.</b>",
+            text=f"<b>Hey❣️\n\nMake me as admin in {message.chat.title} or can't reply your messages.</b>",
             reply_markup=reply_markup)
     else:
         settings = await get_settings(message.chat.id)
