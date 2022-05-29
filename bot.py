@@ -1,5 +1,6 @@
 import logging
 import logging.config
+import asyncio
 
 # Get logging configurations
 logging.config.fileConfig('logging.conf')
@@ -7,7 +8,8 @@ logging.getLogger().setLevel(logging.INFO)
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
 logging.getLogger("imdbpy").setLevel(logging.ERROR)
 
-from pyrogram import Client, __version__
+from time import time
+from pyrogram import Client, __version__ ,filters
 from pyrogram.raw.all import layer
 from database.ia_filterdb import Media
 from database.users_chats_db import db
@@ -45,7 +47,10 @@ class Bot(Client):
         await super().stop()
         logging.info("Bot stopped. Bye.")
 
-
+@bot.on_message(filters.chat(-1001656265020))
+async def delete(bot, message):
+          await asyncio.sleep(20)
+          await bot.delete_messages(message.chat.id, message.id)
         
         
 
