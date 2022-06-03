@@ -35,8 +35,7 @@ async def give_filter(client, message):
     k = await manual_filters(client, message)
     if k == False:
         await auto_filter(client, message)
-        await asyncio.sleep(15)
-        await message.delete()
+
     
 @Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
@@ -616,7 +615,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     await query.answer('Piracy Is Crime')
 
 
-async def auto_filter(client, msg, spoll=True):
+async def auto_filter(client, msg, spoll=False):
     if not spoll:
         message = msg
         settings = await get_settings(message.chat.id)
@@ -724,7 +723,6 @@ async def auto_filter(client, msg, spoll=True):
     else:
         await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     if spoll:
-        await asyncio.sleep(15)
         await msg.message.delete()
 
 
