@@ -36,7 +36,7 @@ async def give_filter(client, message):
     if k == False:
         await auto_filter(client, message)
         await asyncio.sleep(30)
-        await Bot.delete_messages(message.chat.id, message.id)
+        await bot.delete_messages(message.chat.id, message.id)
     
     
 @Client.on_callback_query(filters.regex(r"^next"))
