@@ -35,6 +35,8 @@ async def give_filter(client, message):
     k = await manual_filters(client, message)
     if k == False:
         await auto_filter(client, message)
+        await asyncio.sleep(1800)
+        await client.delete_messages(message.chat.id, message.message_id)
 
     
 @Client.on_callback_query(filters.regex(r"^next"))
@@ -135,7 +137,7 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit('This Movie is not found in bot ,Reasons - spelling not crct,Movie not released ,NO cam prints,HD files mathreme bot ill upload chyu vro . contact admin if its an old movie to add in database @HELL_GaM')
+            k = await query.message.edit('This Movie is not found in bot\nReasons\nSpelling not crct\nMovie not released\nNO cam prints\nHD files mathreme bot ill upload chyu vro\ncontact admin if its an old movie to add in database @HELL_GaM')
             await asyncio.sleep(20)
             await k.delete()
 
@@ -711,8 +713,11 @@ async def auto_filter(client, msg, spoll=False):
         cap = f"Here is what i found for your query {search}"
     if imdb and imdb.get('poster'):
         try:
-            await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
+           a = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
                                       reply_markup=InlineKeyboardMarkup(btn))
+           await asyncio.sleep(1800)
+           await message.delete()
+           await a.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
@@ -735,7 +740,7 @@ async def advantage_spell_chok(msg):
     g_s += await search_gagala(msg.text)
     gs_parsed = []
     if not g_s:
-        k = await msg.reply("I couldn't find any movie in that name.check your spelling is crct or not(TRY GOOGLE!). dont add any unwanted things")
+        k = await msg.reply("I couldn't find any movie in that name.check your spelling is crct\n(TRY GOOGLE!). dont add any unwanted things")
         await asyncio.sleep(15)
         await k.delete()
         return
@@ -776,8 +781,11 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    await msg.reply("I couldn't find anything related to that\nDid you mean any one of these?",
+    a = await msg.reply("I couldn't find anything related to that\nDid you mean any one of these?",
                     reply_markup=InlineKeyboardMarkup(btn))
+    await asyncio.sleep(15)
+    await msg.delete()
+    await a.delete()
 
 
 async def manual_filters(client, message, text=False):
