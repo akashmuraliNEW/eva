@@ -713,7 +713,7 @@ async def auto_filter(client, msg, spoll=False):
         try:
            a = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
                                       reply_markup=InlineKeyboardMarkup(btn))
-           await asyncio.sleep(1800)
+           await asyncio.sleep(10)
            await message.delete()
            await a.edit(f"Filter For {search} Closed 🗑️")
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
