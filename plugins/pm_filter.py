@@ -715,7 +715,7 @@ async def auto_filter(client, msg, spoll=False):
                                       reply_markup=InlineKeyboardMarkup(btn))
            await asyncio.sleep(10)
            await message.delete()
-           await a.edit(f"Filter For {search} Closed 🗑️")
+           await a.edit(f"⚙️ Filter For {search} Closed 🗑️")
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
@@ -803,7 +803,9 @@ async def manual_filters(client, message, text=False):
                 try:
                     if fileid == "None":
                         if btn == "[]":
-                      msg = await client.send_message(group_id, reply_text, disable_web_page_preview=True, reply_to_message_id=reply_id)
+                            await client.send_message(group_id, reply_text, disable_web_page_preview=True, reply_to_message_id=reply_id)
+                            await asyncio.sleep(20)
+                            await message.delete()
                         else:
                             button = eval(btn)
                             await client.send_message(
