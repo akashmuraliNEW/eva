@@ -715,7 +715,7 @@ async def auto_filter(client, msg, spoll=False):
                                       reply_markup=InlineKeyboardMarkup(btn))
            await asyncio.sleep(1800)
            await message.delete()
-           await a.delete()
+           await a.edit(f"Filter For {search} Closed 🗑️")
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
