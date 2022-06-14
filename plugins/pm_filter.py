@@ -35,7 +35,8 @@ async def give_filter(client, message):
     k = await manual_filters(client, message)
     if k == False:
         await auto_filter(client, message)
-
+        await asyncio.sleep(12)
+        await message.delete()
     
 @Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
@@ -716,6 +717,8 @@ async def auto_filter(client, msg, spoll=False):
            await asyncio.sleep(10)
            await message.delete()
            await a.edit(f"⚙️ Filter For {search} Closed 🗑️")
+           await asyncio.sleep(11)
+           await a.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
