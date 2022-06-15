@@ -736,16 +736,7 @@ async def auto_filter(client, msg, spoll=False):
            await a.edit(f"⚙️ Filter For {search} Closed 🗑️")
            await asyncio.sleep(11)
            await a.delete()
-    if spoll:
-         reply = search.replace(" ", '+')  
-                reply_markup = InlineKeyboardMarkup([[
-                 InlineKeyboardButton("🎗️ Google 🎗️", url=f"https://www.google.com/search?q={reply}")
-                 ],[
-                 InlineKeyboardButton("🔍IMDB", url=f"https://www.imdb.com/find?q={reply}"),
-                 InlineKeyboardButton("Wikipedia🔎", url=f"https://en.m.wikipedia.org/w/index.php?search={reply}")
-                 ]]  
-                )   
-              await asyncio.sleep(60)    
+    if spoll:  
         await msg.message.delete()
 
 
