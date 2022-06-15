@@ -724,6 +724,7 @@ async def auto_filter(client, msg, spoll=False):
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
            a = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
            await asyncio.sleep(10)
+           await message.delete()
            await a.edit(f"⚙️ Filter For {search} Closed 🗑️")
            await asyncio.sleep(11)
            await a.delete()
