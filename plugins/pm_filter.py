@@ -722,13 +722,34 @@ async def auto_filter(client, msg, spoll=False):
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+           a = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+           await asyncio.sleep(10)
+           await a.edit(f"⚙️ Filter For {search} Closed 🗑️")
+           await asyncio.sleep(11)
+           await a.delete()
         except Exception as e:
             logger.exception(e)
-            await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+           a = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(10)
+           await a.edit(f"⚙️ Filter For {search} Closed 🗑️")
+           await asyncio.sleep(11)
+           await a.delete()
     else:
-        await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+      a = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+        await asyncio.sleep(10)
+           await a.edit(f"⚙️ Filter For {search} Closed 🗑️")
+           await asyncio.sleep(11)
+           await a.delete()
     if spoll:
+         reply = search.replace(" ", '+')  
+                reply_markup = InlineKeyboardMarkup([[
+                 InlineKeyboardButton("🎗️ Google 🎗️", url=f"https://www.google.com/search?q={reply}")
+                 ],[
+                 InlineKeyboardButton("🔍IMDB", url=f"https://www.imdb.com/find?q={reply}"),
+                 InlineKeyboardButton("Wikipedia🔎", url=f"https://en.m.wikipedia.org/w/index.php?search={reply}")
+                 ]]  
+                )   
+              await asyncio.sleep(60)    
         await msg.message.delete()
 
 
