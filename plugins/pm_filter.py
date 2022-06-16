@@ -137,7 +137,7 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:
          reply_markup = InlineKeyboardMarkup([[
-              InlineKeyboardButton ("🎗️ Google 🎗️", url=f"https://www.google.com/search?q={qu}")   
+              InlineKeyboardButton ("🎗️ Google 🎗️", url=f"https://www.google.com/search?q={search}")   
                ]] 
               )
          
