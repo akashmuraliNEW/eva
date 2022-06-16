@@ -136,7 +136,11 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit('This Movie is not found in bot\nReasons\nSpelling not crct\nMovie not released\nNO cam prints\nHD files mathreme bot ill upload chyu vro\ncontact admin if its an old movie to add in database @HELL_GaM')
+           buttons = [[
+              InlineKeyboardButton ("🎗️ Google 🎗️", url=f"https://www.google.com/search?q={reply}")   
+               ]] 
+            
+            k = await query.message.edit('This Movie is not found in bot\nReasons\nSpelling not crct\nMovie not released\nNO cam prints\nHD files mathreme bot ill upload chyu vro\ncontact admin if its an old movie to add in database @HELL_GaM, reply_markup=InlineKeyboardMarkup(buttons)')
             await asyncio.sleep(20)
             await k.delete()
 
