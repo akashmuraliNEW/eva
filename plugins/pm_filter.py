@@ -140,7 +140,7 @@ async def advantage_spoll_choker(bot, query):
               InlineKeyboardButton ("🎗️ Google 🎗️", url=f"https://www.google.com/search?q={reply}")   
                ]] 
               )
-        k = await query.reply_text(text = hey check, reply_markup=reply_markup)
+        k = await query.reply_text(hy, reply_markup=reply_markup)
             await asyncio.sleep(20)
             await k.delete()
 
