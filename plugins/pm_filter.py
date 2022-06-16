@@ -136,11 +136,12 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-           buttons = [[
+         reply_markup = InlineKeyboardMarkup([[
               InlineKeyboardButton ("🎗️ Google 🎗️", url=f"https://www.google.com/search?q={reply}")   
                ]] 
+              )
             reply_markup = InlineKeyboardMarkup(buttons)
-            k = await query.message.edit_reply_markup(reply_markup)
+        k = await query.reply_text(text = hey check, reply_markup=reply_markup)
             await asyncio.sleep(20)
             await k.delete()
 
